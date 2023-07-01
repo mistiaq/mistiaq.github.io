@@ -1,0 +1,62 @@
+.input-group__control {
+  display: block;
+  width: 100%;
+  height: $btn-height-base;
+  padding: $input-control-padding-y-base $input-control-padding-x-base;
+  font-family: $input-control-font-family;
+  @include font-size($input-control-font-size-base);
+  font-weight: $input-control-font-weight;
+  line-height: $input-control-line-height;
+  text-transform: inherit;
+  text-decoration: inherit;
+  letter-spacing: 0.009375em;
+  appearance: none;
+  user-select: none;
+  color: $input-control-color;
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 0;
+  @include border-radius(0.5rem);
+  @include box-shadow(none);
+  @include transition($input-control-transition);
+
+  &::placeholder {
+    color: $gray-600;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled,
+  &.disabled,
+  &[readonly] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: $disabled-opacity;
+  }
+
+  .input-group>& {
+    position: relative;
+    flex: 1 1 0%;
+    min-width: 0;
+
+    &:focus {
+      z-index: 3;
+    }
+
+    &:not(:first-child) {
+      padding-left: 0;
+
+      @include border-top-left-radius(0);
+      @include border-bottom-left-radius(0);
+    }
+
+    &:not(:last-child) {
+      padding-right: 0;
+
+      @include border-top-right-radius(0);
+      @include border-bottom-right-radius(0);
+    }
+  }
+}

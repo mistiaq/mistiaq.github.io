@@ -1,0 +1,36 @@
+$input-mb: 0rem !default;
+$input-border-radius: $btn-border-radius-base !default;
+$input-transition: $btn-transition !default;
+
+$input-control-height: $btn-height-base !default;
+$input-control-padding-y: $btn-padding-y-base !default;
+$input-control-padding-x: $spacer-4 !default;
+
+$input-control-font-family: $btn-font-family !default;
+$input-control-font-weight: $font-weight-base !default;
+$input-control-font-size: $btn-font-size-base !default;
+$input-control-line-height: $btn-lh-base !default;
+
+$input-control-color: $gray-600 !default;
+$input-control-bg: $white !default;
+
+$input-control-border-width: 0rem !default;
+$input-control-border-color: transparent !default;
+$input-control-border-radius: $btn-border-radius-base !default;
+
+$input-control-box-shadow: 0 1px 3px rgb(50 50 93 / 15%),
+  0 1px 0 rgb(0 0 0 / 2%) !default;
+$input-control-focused-box-shadow: 0 4px 6px rgba($primary, 0.11),
+  0 1px 3px rgba($primary, 0.08) !important !default;
+
+$input-control-transition: $input-transition !default;
+
+$input-icon-width: $input-control-height !default;
+$input-icon-height: $input-icon-width !default;
+
+$input-icon-color: $input-control-color !default;
+$input-icon-bg: transparent !default;
+
+$input-icon-border-radius: $input-control-border-radius !default;
+
+$input-icon-transition: $input-transition !default;

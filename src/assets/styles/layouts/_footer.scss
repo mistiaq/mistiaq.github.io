@@ -1,0 +1,23 @@
+.footer {
+  padding-top: $spacer-7;
+  padding-bottom: $spacer-7;
+  text-align: center;
+  background-color: $surface;
+
+  &__copyright-text,
+  &__developer-text {
+    margin-bottom: $spacer-0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .footer {
+    &__copyright-text {
+      text-align: start;
+    }
+
+    &__developer-text {
+      text-align: end;
+    }
+  }
+}

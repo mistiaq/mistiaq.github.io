@@ -1,0 +1,36 @@
+.input-group__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $input-control-height-base;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  color: $input-control-color;
+  background-color: transparent;
+  @include border-radius($input-control-border-radius-base);
+  transition: all .15s cubic-bezier(0.68, -0.55, .265, 1.55);
+
+  & .fe {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &--prepend {
+    margin-right: -2px;
+
+    .input-group>& {
+      @include border-top-right-radius(0);
+      @include border-bottom-right-radius(0);
+    }
+  }
+
+  &--append {
+    margin-left: -2px;
+
+    .input-group>& {
+      @include border-top-left-radius(0);
+      @include border-bottom-left-radius(0);
+    }
+  }
+}

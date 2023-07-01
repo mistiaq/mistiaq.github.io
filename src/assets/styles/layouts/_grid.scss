@@ -1,0 +1,21 @@
+@if $enable-grid-classes {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0rem;
+    margin-right: $grid-gutter * -0.5;
+    margin-left: $grid-gutter * -0.5;
+
+    >* {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: $grid-gutter * 0.5;
+      padding-left: $grid-gutter * 0.5;
+    }
+  }
+}
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}

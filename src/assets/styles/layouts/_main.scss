@@ -1,0 +1,19 @@
+.main {
+  position: relative;
+
+  &--dashboard {
+    width: 100%;
+    height: 100vh;
+    overflow: overlay;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .main {
+    &--dashboard {
+      .sidebar+& {
+        margin-left: 20rem;
+      }
+    }
+  }
+}

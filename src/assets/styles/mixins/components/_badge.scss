@@ -1,0 +1,37 @@
+// badge fill variant mixin
+@mixin badge-fill-variant($bg-color,
+  $color: color-contrast($bg-color),
+  $border-color: $bg-color) {
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+  // @include colored-shadows($bg-color);
+}
+
+// badge tone variant mixin
+@mixin badge-tonal-variant($color,
+  $bg-color: rgba($color, 0.24),
+  $border-color: transparent) {
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+}
+
+// badge outline variant mixin
+@mixin badge-outline-variant($color,
+  $bg-color: transparent,
+  $border-color: rgba($color, 0.24)) {
+  color: rgba($color, 0.87);
+  background-color: $bg-color;
+  border-color: $border-color;
+}
+
+// badge text variant mixin
+@mixin badge-text-variant($color,
+  $bg-color: transparent,
+  $border-color: transparent) {
+  padding: 0rem;
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+}

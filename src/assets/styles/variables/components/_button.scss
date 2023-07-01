@@ -1,0 +1,54 @@
+$btn-margin-bottom: $spacer-0 !default;
+$btn-font-family: $font-family-serif !default;
+$btn-font-weight: $font-weight-bold !default;
+$btn-lh-base: $lh-btn !default;
+$btn-border-width: $border-width-btn !default;
+$btn-border-color: transparent !default;
+
+$btn-height-base: 3rem !default;
+$btn-padding-y-base: $spacer-3 !default;
+$btn-padding-x-base: $spacer-7 !default;
+$btn-font-size-base: $font-size-base !default;
+$btn-border-radius-base: 0.375rem !default;
+
+$btn-height-xs: 1.75rem !default;
+$btn-padding-y-xs: $spacer-0 !default;
+$btn-padding-x-xs: $spacer-6 !default;
+$btn-font-size-xs: $font-size-xs !default;
+$btn-border-radius-xs: 0.5rem !default;
+
+$btn-height-sm: 2.25rem !default;
+$btn-padding-y-sm: $spacer-2 !default;
+$btn-padding-x-sm: $spacer-5 !default;
+$btn-font-size-sm: $font-size-sm !default;
+$btn-border-radius-sm: 1rem !default;
+
+$btn-height-lg: 3.75rem !default;
+$btn-padding-y-lg: $spacer-4 !default;
+$btn-padding-x-lg: $spacer-8 !default;
+$btn-font-size-lg: $font-size-base !default;
+$btn-border-radius-lg: 0.375rem !default;
+
+$btn-box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11),
+  0 2px 4px -1px rgba(0, 0, 0, 0.07) !default;
+
+$btn-hover-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.09),
+  0 2px 3px -1px rgba(0, 0, 0, 0.07) !default;
+
+$btn-transition: all 0.25s ease-in-out !default;
+
+$btn-link-lh: $line-height-link !default;
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+
+$btn-icon-only-width-base: $btn-height-base !default;
+$btn-icon-only-padding-base: $spacer-0 !default;
+$btn-icon-only-font-size-base: $font-size-xxl !default;
+
+$btn-icon-only-width-sm: $btn-height-sm !default;
+$btn-icon-only-padding-sm: $spacer-0 !default;
+$btn-icon-only-font-size-sm: $font-size-lg !default;
+
+$btn-icon-only-width-lg: $btn-height-lg !default;
+$btn-icon-only-padding-lg: $spacer-0 !default;
+$btn-icon-only-font-size-lg: $font-size-xxl !default;

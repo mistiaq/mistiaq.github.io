@@ -1,0 +1,90 @@
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__title {
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__hidden-title {
+    position: absolute;
+    right: 0;
+    bottom: -$spacer-2;
+    text-transform: uppercase;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 55px;
+    text-align: end;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba($light, 0.24);
+  }
+
+  &__bg {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0.75);
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .banner {
+    &__hidden-title {
+      bottom: -$spacer-3;
+      font-size: 90px;
+      line-height: 80px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .banner {
+    &__hidden-title {
+      font-size: 100px;
+      line-height: 90px;
+    }
+
+    &--home {
+      height: 70vh;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .banner {
+    &__hidden-title {
+      bottom: -$spacer-4;
+      font-size: 120px;
+      line-height: 110px;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .banner {
+    &__hidden-title {
+      font-size: 150px;
+      line-height: 125px;
+    }
+  }
+}

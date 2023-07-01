@@ -1,0 +1,346 @@
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Just add .dropup after the standard .dropdown class and you're set.
+.dropup {
+  position: relative;
+
+  // .dropdown__toggle {
+  //   @include caret(up);
+  // }
+
+  .dropdown__menu {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0rem;
+    margin-bottom: $dropup-mb;
+    transform-origin: $dropup-transform-origin;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      bottom: $dropup-animation-arrow-bottom-position;
+      left: $dropdown-animation-arrow-left-position;
+      right: auto;
+      font-size: $dropdown-animation-arrow-font-size;
+      color: $white;
+      transition: $dropup-animation-arrow-transition;
+
+      border-top: 0.5em solid $white;
+      border-right: 0.5em solid transparent;
+      border-left: 0.5em solid transparent;
+    }
+
+    &--show {
+      &:after {
+        bottom: $dropup-hover-arrow-active-bottom;
+      }
+    }
+  }
+}
+
+// Dropdown wrapper (`<div>`)
+.dropdown {
+  position: relative;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    // padding: 0.75rem;
+    white-space: nowrap;
+    margin-bottom: 0rem;
+
+    &-icon {
+      margin-left: auto;
+    }
+  }
+
+  // Dropdown menu
+  &__menu {
+    z-index: $z-index-dropdown;
+    position: absolute;
+    top: 100%;
+    display: block; // none by default, but block on "open" of the menu
+    min-width: $dropdown-md-min-width;
+    padding: $dropdown-padding-y $dropdown-padding-x;
+    margin: 0; // Overrides default margin of ul
+    // @include font-size($dropdown-font-size);
+    // color: $dropdown-color;
+    text-align: left; // Ensures proper alignment if parent has it changed
+    list-style: none;
+    background-color: map-get($layout-colors, surface);
+    background-clip: padding-box;
+    @include border-radius(0.5rem);
+    box-shadow: rgb(0 0 0 / 10%) 0rem 0.625rem 0.9375rem -0.1875rem,
+      rgb(0 0 0 / 5%) 0rem 0.25rem 0.375rem -0.125rem;
+    inset: 0px auto auto 0px;
+
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: $dropdown-transition;
+    transform-origin: $dropdown-transform-origin;
+    transform: $dropdown-multilevel-transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+
+    &[data-bs-popper] {
+      top: 100%;
+      left: 0;
+      margin-top: $dropdown-spacer;
+    }
+
+    // border: 1px solid map-get($grays, 300);
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #4e4e4e2a;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgb(182, 178, 178);
+      border-radius: 5px;
+    }
+
+    &--right {
+      right: 0;
+      left: auto;
+      transform-origin: right 0;
+
+      &:before {
+        right: $dropdown-animation-arrow-left-position;
+        left: auto;
+      }
+    }
+
+    &--show {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transform: $dropdown-multilevel-transform-show;
+
+      &:before {
+        top: $dropdown-hover-arrow-active-top;
+      }
+    }
+  }
+
+  // Dividers (basically an `<hr>`) within the dropdown
+  &__divider {
+    height: 0;
+    // margin: $dropdown-divider-margin-y 0;
+    overflow: hidden;
+    border-top: 1px solid $dropdown-divider-bg;
+  }
+
+  // Dropdown headers
+  &__header {
+    display: block;
+    // padding: $dropdown-header-padding;
+    margin-bottom: 0; // For use with heading elements
+    // @include font-size($dropdown-header-font-size);
+    // color: $dropdown-header-color;
+    white-space: nowrap; // as with > li > a
+  }
+
+  // Links, buttons, and more within the dropdown menu
+  //
+  // `<button>`-specific styles are denoted with `// For <button>s`
+  &__link {
+    display: block;
+    width: 100%; // For `<button>`s
+    padding: $dropdown-link-padding-y $dropdown-link-padding-x;
+    clear: both;
+    // font-weight: $dropdown-link-font-weight;
+    color: $font-color;
+    text-align: inherit; // For `<button>`s
+    // text-decoration: if($link-decoration ==none, null, none);
+    white-space: nowrap; // Prevents links from randomly breaking onto new lines
+    background-color: transparent; // for `<button>`s
+    border: 0; // For `<button>`s
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    // Prevents dropdown overflow if there's no padding
+    @if $dropdown-padding-y ==0 {
+      &:first-child {
+        @include border-top-radius($dropdown-inner-border-radius);
+      }
+
+      &:last-child {
+        @include border-bottom-radius($dropdown-inner-border-radius);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      // color: $dropdown-link-hover-color;
+      // text-decoration: if($link-hover-decoration ==underline, none, null);
+      // @include gradient-bg($dropdown-link-hover-bg);
+    }
+
+    &.active {
+      // color: $dropdown-link-active-color;
+      text-decoration: none;
+      // @include gradient-bg($dropdown-link-active-bg);
+    }
+
+    &.disabled {
+      // color: $dropdown-link-disabled-color;
+      pointer-events: none;
+      background-color: transparent;
+      // Removes CSS gradients if they're enabled
+      background-image: if($enable-gradients, none, null);
+    }
+  }
+}
+
+// Media queries for navbar
+//
+// min-widths
+@include media-breakpoint-up(md) {
+  .dropup--hover {
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: $dropup-hover-before-top-pos;
+      width: 100%;
+      height: 20%;
+    }
+
+    &:hover {
+      >.dropdown__toggle {
+
+        .dropdown__toggle__icon,
+        &:after {
+          transform: $dropdown-toggle-arrow-transform;
+        }
+      }
+
+      .dropdown__menu {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: $dropdown-multilevel-transform-show;
+
+        &:after {
+          bottom: $dropup-hover-arrow-active-bottom;
+        }
+      }
+    }
+  }
+
+  .dropdown--hover {
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: $dropdown-hover-after-bottom-pos;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      >.dropdown__toggle {
+
+        .dropdown__toggle__icon,
+        &:after {
+          transform: $dropdown-toggle-arrow-transform;
+        }
+      }
+
+      >.dropdown__menu {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: $dropdown-multilevel-transform-show;
+
+        &:before {
+          top: $dropdown-hover-arrow-active-top;
+        }
+      }
+    }
+
+    &.dropdown__sub-item {
+      &:after {
+        left: 100%;
+        bottom: 0;
+        width: 5%;
+      }
+
+      .dropdown__link+.dropdown__menu:before {
+        top: 1rem;
+      }
+
+      &:hover .dropdown__link+.dropdown__menu:before {
+        left: $dropdown-subitem-left-hover;
+      }
+    }
+  }
+
+  .dropdown__link+.dropdown__menu {
+    right: $dropdown-subitem-position-right;
+    left: auto;
+    top: 0;
+    margin-top: 0;
+    transform: $dropdown-multilevel-transform-show;
+
+    &:before {
+      transform: $dropdown-subitem-arrow-rotate;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      transition: left 0.35s ease;
+    }
+  }
+}
+
+// max-widths
+@include media-breakpoint-down(md) {
+  .nav__link+.dropdown__menu--collapse {
+    overflow-y: scroll;
+  }
+
+  .dropdown__menu--collapse {
+    // display: block;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    opacity: 0;
+    background-color: transparent;
+    position: relative;
+    border-radius: 0rem;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    transform: none;
+    box-shadow: none;
+
+    &:before {
+      display: none;
+    }
+
+    &.dropdown__menu--show {
+      height: 150px;
+      opacity: 1;
+    }
+  }
+
+  .dropdown__link+.dropdown__menu {
+    position: static;
+    padding: 0rem;
+    box-shadow: none;
+
+    &:before {
+      display: none;
+    }
+  }
+}
