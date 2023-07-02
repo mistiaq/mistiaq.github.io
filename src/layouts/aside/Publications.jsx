@@ -17,7 +17,7 @@ function PopulerPublications() {
   return (
     <Section
       utilities={{
-        py: { _: 6 }
+        pt: { _: 6 }
       }}
     >
       <Heading

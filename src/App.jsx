@@ -20,8 +20,8 @@ import Sidebar from './layouts/sidebar/Sidebar'
 import Footer from './layouts/footer/Footer'
 
 import Home from './pages/Home'
-import Article from './pages/Article'
 import Publications from './pages/Publications'
+import Repositories from './pages/Repositories'
 
 import Error404 from './pages/Error'
 
@@ -77,9 +77,9 @@ function App() {
 
         <Route
           exact
-          path='/articles/:slug'
+          path='/repositories'
           element={
-            <Article
+            <Repositories
               setSidebarSlide={setSidebarSlide}
             />
           }

@@ -69,7 +69,7 @@ function Publications({
           </Row>
         </Container>
       </Main>
-    </React.Fragment >
+    </React.Fragment>
   )
 }
 

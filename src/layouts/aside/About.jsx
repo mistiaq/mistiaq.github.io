@@ -152,6 +152,7 @@ function About() {
                 path={path}
                 extended
                 utilities={{
+                  w: { _: 100 },
                   pl: { _: 0 }
                 }}
               >
