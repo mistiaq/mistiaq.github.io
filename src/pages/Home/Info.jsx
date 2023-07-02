@@ -21,7 +21,7 @@ function Info() {
           col={{ _: 12 }}
         >
           {
-            data && parser(data.attributes.personalInfo, {
+            data && parser(data.attributes.description, {
               replace: node => {
                 if (node.type === 'tag' && node.name === 'img') {
                   const { src, alt } = node.attribs

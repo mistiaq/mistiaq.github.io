@@ -8,7 +8,7 @@ import {
 function NavbarBrand() {
   return (
     <AnchorTag
-      path='https://abdulazizmechanics.com'
+      path='https://mistiaq.github.io'
       classes={[
         'navbar__brand'
       ]}
