@@ -15,27 +15,32 @@ const socialLinks = [
   {
     name: 'facebook',
     icon: 'facebook',
-    path: 'https://facebook.com'
+    path: 'https://www.facebook.com/mohammadistiaquddin0'
   },
   {
     name: 'linked in',
     icon: 'linked-in',
-    path: 'https://www.linkedin.com'
+    path: 'https://www.linkedin.com/mohammadistiaquddin'
   },
   {
-    name: 'linked in',
-    icon: 'linked-in',
-    path: 'https://www.linkedin.com'
+    name: 'orcid',
+    icon: 'orcid',
+    path: 'https://orcid.org/mohammadistiaquddin'
   },
   {
-    name: 'linked in',
-    icon: 'linked-in',
-    path: 'https://www.linkedin.com'
+    name: 'research gate',
+    icon: 'research-gate',
+    path: 'https://www.researchgate.net/mohammadistiaquddin'
   },
   {
     name: 'github',
     icon: 'github',
-    path: 'https://www.github.com'
+    path: 'https://www.github.com/mohammadistiaquddin'
+  },
+  {
+    name: 'semantic scholar',
+    icon: 'semantic-scholar',
+    path: 'https://www.semanticscholar.org/mohammadistiaquddin'
   }
 ]
 

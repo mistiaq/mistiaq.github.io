@@ -27,7 +27,8 @@ function Info() {
                   const { src, alt } = node.attribs
 
                   return <img
-                    src={'http://localhost:1337' + src}
+                    src={src}
+                    // src={'http://localhost:1337' + src}
                     alt={alt}
                   />
                 }
