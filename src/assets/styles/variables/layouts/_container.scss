@@ -1,0 +1,12 @@
+$container-max-widths: (
+  xs: 100%,
+  sm: 100%,
+  md: 100%,
+  lg: 94%,
+  xl: 85rem,
+  ) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths"
+);
+
+$container-padding-x: $grid-gutter !default;

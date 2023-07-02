@@ -1,0 +1,41 @@
+$border-width-0: 0rem !default;
+$border-width-1: 0.0630rem !default;
+$border-width-2: 0.125rem !default;
+$border-width-3: 0.25rem !default;
+$border-width-4: 0.375rem !default;
+$border-width-5: 0.5rem !default;
+
+$border-widths: (
+  0: $border-width-0,
+  1: $border-width-1,
+  2: $border-width-2,
+  3: $border-width-3,
+  4: $border-width-4,
+  5: $border-width-5,
+  ) !default;
+
+$border-color: $font-color !default;
+
+$border-radius-0: 0rem !default;
+$border-radius-xs: 0.1rem !default;
+$border-radius-sm: 0.125rem !default;
+$border-radius-base: 0.375rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-xl: 0.75rem !default;
+$border-radius-xxl: 1rem !default;
+$border-radius-section: 10rem !default;
+$border-radius-pill: 50% !default;
+
+$border-radius: (
+  0: $border-radius-0,
+  xs: $border-radius-xs,
+  sm: $border-radius-sm,
+  base: $border-radius-base,
+  lg: $border-radius-lg,
+  xl: $border-radius-xl,
+  xxl: $border-radius-xxl,
+  section: $border-radius-section,
+  circle: $border-radius-pill,
+  ) !default;
+
+$border-width-btn: $border-width-1;

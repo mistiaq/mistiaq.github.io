@@ -1,0 +1,33 @@
+.divider {
+  width: auto;
+  height: 0.0635rem;
+  margin: $spacer-0 $spacer-0;
+  background-color: $hr-bg-color;
+  opacity: 0.125;
+
+  &--light {
+    background-color: transparent;
+    background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), $light, hsla(0, 0%, 100%, 0));
+  }
+
+  &--dark {
+    background-color: transparent;
+    background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), $dark, hsla(0, 0%, 100%, 0));
+  }
+
+  &--vertical {
+    display: inline-block;
+    align-self: stretch;
+    width: 0.0125rem;
+    height: auto;
+    min-height: 1rem;
+    background-color: currentColor;
+  }
+
+  &--circle {
+    width: $spacer-1;
+    height: $spacer-1;
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,85 @@
+@mixin button-fill-variant($bg-color,
+  $color: color-contrast($bg-color),
+  $border-color: $bg-color,
+  $hover-bg-color: rgba($bg-color, 0.04),
+  $focus-bg-color: rgba($bg-color, 0.12),
+) {
+  color: $color;
+  background-color: $bg-color;
+  @include colored-box-shadows($bg-color);
+
+  &:hover {
+    @include colored-box-shadows-hover($bg-color);
+  }
+
+  .btn__icon {
+    fill: $color;
+  }
+}
+
+@mixin button-tonal-variant($color,
+  $bg-color: rgba($color, 0.10),
+  $border-color: transparent,
+  $hover-bg-color: rgba($color, 0.04),
+  $focus-bg-color: rgba($color, 0.12),
+) {
+  color: $color;
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+
+  .btn__icon {
+    fill: $color;
+  }
+}
+
+@mixin button-outline-variant($color,
+  $bg-color: transparent,
+  $border-color: $color,
+  $hover-bg-color: rgba($color, 0.04),
+  $focus-bg-color: rgba($color, 0.12),
+) {
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+
+  .btn__icon {
+    fill: $color;
+  }
+}
+
+@mixin button-text-variant($color,
+  $bg-color: transparent,
+  $border-color: transparent,
+  $hover-bg-color: rgba($color, 0.04),
+  $focus-bg-color: rgba($color, 0.12),
+) {
+  color: $color;
+  background-color: $bg-color;
+
+  &:hover {
+    color: if($color ==dark, $hover-bg-color, $primary);
+  }
+
+  .btn__icon {
+    fill: $color;
+  }
+}
+
+@mixin button-size($height,
+  $padding-y,
+  $padding-x,
+  $font-size,
+  $border-radius,
+) {
+  height: $height;
+  padding: $padding-y $padding-x;
+  @include font-size($font-size);
+  @include border-radius($border-radius);
+}

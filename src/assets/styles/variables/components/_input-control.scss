@@ -1,0 +1,35 @@
+$input-group-border-width: $btn-border-width !default;
+$input-group-border-color: $gray-400 !default;
+$input-group-border-radius-base: $btn-border-radius-base !default;
+
+$input-group-box-shadow: 0 1px 3px rgb(50 50 93 / 15%),
+  0 1px 0 rgb(0 0 0 / 2%) !default;
+$input-group-focused-box-shadow: 0 4px 6px rgba($primary, 0.11),
+  0 1px 3px rgba($primary, 0.08) !important !default;
+$input-group-transition: $btn-transition !default;
+
+$input-control-font-family: $btn-font-family !default;
+$input-control-font-weight: $font-weight-base !default;
+$input-control-color: $gray-700 !default;
+$input-control-bg: $white !default;
+
+$input-control-height-base: $btn-height-base !default;
+$input-control-padding-y-base: $btn-padding-y-base !default;
+$input-control-padding-x-base: $spacer-4 !default;
+$input-control-font-size-base: $btn-font-size-base !default;
+$input-control-line-height: $btn-lh-base !default;
+$input-control-border-radius-base: $btn-border-radius-base !default;
+
+$input-control-height-sm: $btn-height-sm !default;
+$input-control-padding-y-sm: $btn-padding-y-sm !default;
+$input-control-padding-x-sm: $spacer-2 !default;
+$input-control-font-size-sm: $btn-font-size-sm !default;
+$input-control-border-radius-sm: $btn-border-radius-sm !default;
+
+$input-control-height-lg: $btn-height-lg !default;
+$input-control-padding-y-lg: $btn-padding-y-lg !default;
+$input-control-padding-x-lg: $spacer-3 !default;
+$input-control-font-size-lg: $btn-font-size-lg !default;
+$input-control-border-radius-lg: $btn-border-radius-lg !default;
+
+$input-control-transition: $btn-transition !default;

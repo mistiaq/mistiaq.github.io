@@ -1,0 +1,111 @@
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  margin-bottom: $input-mb;
+  @include border-radius($input-border-radius);
+  @include transition($input-transition);
+
+  .input-wrapper>& {
+    z-index: 3;
+  }
+
+  &__control {
+    display: block;
+    width: 100%;
+    height: $input-control-height;
+    padding: $input-control-padding-y $input-control-padding-x;
+    font-family: $input-control-font-family;
+    @include font-size($input-control-font-size);
+    font-weight: $input-control-font-weight;
+    line-height: $input-control-line-height;
+    text-transform: inherit;
+    text-decoration: inherit;
+    letter-spacing: 0.009375em;
+    appearance: none;
+    user-select: none;
+    color: $input-control-color;
+    background-color: $input-control-bg;
+    background-clip: padding-box;
+    border: $input-control-border-width solid $input-control-border-color;
+    @include border-radius($input-control-border-radius);
+    @include box-shadow($input-control-box-shadow);
+    @include transition($input-control-transition);
+
+    &::placeholder {
+      color: $gray-500;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled,
+    &.disabled,
+    &[readonly] {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: $disabled-opacity;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $input-icon-width;
+    height: $input-icon-height;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.188rem;
+    text-align: center;
+    white-space: nowrap;
+    color: $input-icon-color;
+    background-color: $input-icon-bg;
+    @include border-radius($input-icon-border-radius);
+    @include transition($input-icon-transition);
+
+    & .fe {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  &.focused {
+    .input__control {
+      color: $primary;
+      @include box-shadow($input-control-focused-box-shadow);
+    }
+
+    .input__icon {
+      color: $primary;
+    }
+  }
+
+  &--prepend {
+    & .input__control {
+      padding-left: calc($input-icon-width - 2px);
+    }
+
+    & .input__icon {
+      left: 0;
+    }
+  }
+
+  &--append {
+    & .input__control {
+      padding-right: calc($input-icon-width - 2px);
+    }
+
+    & .input__icon {
+      right: 0;
+    }
+  }
+}

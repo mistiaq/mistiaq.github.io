@@ -1,0 +1,85 @@
+.badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: map-get($font-sizes, xs);
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: $badge-color;
+  vertical-align: baseline;
+  background-color: map-get($theme-colors, primary);
+  border: 1px solid transparent;
+  border-radius: $badge-border-radius;
+
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+
+  // badge fill variants
+  @each $color,
+  $value in $theme-colors {
+    &--contain-#{$color} {
+      @include badge-fill-variant($value);
+    }
+  }
+
+  // badge tonal variants
+  @each $color,
+  $value in $theme-colors {
+    &--tonal-#{$color} {
+      @include badge-tonal-variant($value);
+    }
+  }
+
+  // badge outline variants
+  @each $color,
+  $value in $theme-colors {
+    &--outline-#{$color} {
+      @include badge-outline-variant($value);
+    }
+  }
+
+  // badge text variants
+  @each $color,
+  $value in $theme-colors {
+    &--text-#{$color} {
+      @include badge-text-variant($value);
+    }
+  }
+}
+
+.badge--dot {
+  padding-left: 0;
+  padding-right: 0;
+  color: map-get($theme-colors, dark);
+  font-weight: map-get($font-weights, md);
+  font-size: map-get($font-sizes, sm);
+  text-transform: capitalize;
+  background: transparent;
+
+  .dot {
+    display: inline-block;
+    width: $badge-dot-icon-width;
+    height: $badge-dot-icon-height;
+    margin-right: $badge-dot-icon-margin-right;
+    border-radius: $badge-dot-icon-radius;
+    vertical-align: middle;
+
+    @each $color,
+    $value in $theme-colors {
+      &--#{$color} {
+        background-color: $value;
+      }
+    }
+
+    @each $color,
+    $value in $social-media-colors {
+      &--#{$color} {
+        background-color: $value;
+      }
+    }
+  }
+}

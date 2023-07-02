@@ -1,0 +1,49 @@
+.header {
+  &-top {
+    position: relative;
+    padding: $spacer-4 $spacer-0;
+    background-color: $secondary;
+
+    &>.container,
+    &>.container-fluid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__right {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: auto;
+    }
+
+    &__text {
+      color: $light;
+    }
+
+    &__schedule {
+      color: $light;
+      margin-left: $spacer-6;
+    }
+
+    &__contact {
+      color: $light;
+    }
+  }
+
+  &--sticky {
+    margin-bottom: 85px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .header {
+    &--sticky {
+      margin-bottom: 100px;
+    }
+  }
+}
