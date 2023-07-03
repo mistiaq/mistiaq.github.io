@@ -18,7 +18,7 @@ import {
   Column
 } from '../../layouts/Grid'
 
-import Info from './Info'
+// import Info from './Info'
 import Events from './Events'
 import FeaturedArticles from './FeaturedArticles'
 
@@ -40,7 +40,7 @@ function Home({
       </Helmet>
 
       <Main>
-        <Container>
+        {/* <Container>
           <Row>
             <Column
               col={{ _: 12 }}
@@ -48,7 +48,7 @@ function Home({
               <Info />
             </Column>
           </Row>
-        </Container>
+        </Container> */}
 
         <Divider
           utilities={{

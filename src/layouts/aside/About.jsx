@@ -69,7 +69,7 @@ function About() {
       </Heading>
 
       <Box>
-        {/* <Box
+        <Box
           utilities={{
             d: { _: 'flex' },
             'align-items': { _: 'center' },
@@ -85,7 +85,7 @@ function About() {
           >
             {data && data.attributes.address}
           </DynamicLink>
-        </Box> */}
+        </Box>
 
         <Box
           utilities={{
