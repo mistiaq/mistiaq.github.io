@@ -25,7 +25,7 @@ function Footer({
       </Button>
 
       <DynamicLink
-        path={`${paperURL}`}
+        path={`https://strapi-development-tb5n.onrender.com${paperURL}`}
         classes={[
           'btn',
           'btn--xs',

@@ -52,7 +52,7 @@ function Header({
         ]}
       >
         <DynamicLink
-          path={`${paperURL}`}
+          path={`https://strapi-development-tb5n.onrender.com${paperURL}`}
         >
           {title}
         </DynamicLink>
