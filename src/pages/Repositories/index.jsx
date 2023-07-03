@@ -87,7 +87,6 @@ function Repositories({
                     </Heading>
                   </Column>
 
-
                   <Column
                     col={{ _: 12 }}
                   >

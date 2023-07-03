@@ -8,10 +8,10 @@ import Footer from './Footer'
 
 function Article({
   key,
+  category,
   title,
   slug,
   description,
-  category,
   paperURL,
   date
 }) {
@@ -23,6 +23,7 @@ function Article({
       )}
     >
       <Header
+        category={category}
         title={title}
         slug={slug}
         paperURL={paperURL}
@@ -44,11 +45,11 @@ function Article({
 
 Article.propTypes = {
   key: PropTypes.string,
+  category: PropTypes.string,
   title: PropTypes.string,
   slug: PropTypes.string,
   description: PropTypes.string,
-  category: PropTypes.string,
-  // paperURL: PropTypes.func,
+  // paperURL: PropTypes.url,
   date: PropTypes.string
 }
 

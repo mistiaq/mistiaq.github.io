@@ -12,8 +12,8 @@ import Badge from '../../Badge'
 import Box from '../../../layouts/Box'
 
 function Header({
+  category,
   title,
-  slug,
   paperURL,
   date
 }) {
@@ -31,7 +31,7 @@ function Header({
           mb: { _: 4 }
         }}
       >
-        <Badge>Category</Badge>
+        <Badge>{category}</Badge>
 
         <Divider
           circle
@@ -52,7 +52,7 @@ function Header({
         ]}
       >
         <DynamicLink
-          path={`https://strapi-development-tb5n.onrender.com${paperURL}`}
+          path={`http://localhost:1337${paperURL}`}
         >
           {title}
         </DynamicLink>
@@ -62,8 +62,8 @@ function Header({
 }
 
 Header.propTypes = {
+  category: PropTypes.string,
   title: PropTypes.string,
-  slug: PropTypes.string,
   // paperURL: PropTypes.func,
   date: PropTypes.string
 }

@@ -52,7 +52,7 @@ function FeaturedArticles() {
                     title={article.attributes.title}
                     slug={article.attributes.slug}
                     description={article.attributes.description}
-                    // category={article.attributes.categories.data}
+                    category={article.attributes.category.data.attributes.categoryName}
                     paperURL={article.attributes.paper.data.attributes.url}
                     date={article.attributes.uploadedAt}
                   />
