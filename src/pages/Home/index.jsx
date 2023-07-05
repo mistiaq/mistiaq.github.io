@@ -12,15 +12,14 @@ import Divider from '../../components/Divider'
 
 import Main from '../../layouts/Main'
 import Container from '../../layouts/Container'
-import Aside from '../../layouts/aside/Aside'
 import {
   Row,
   Column
 } from '../../layouts/Grid'
+import Aside from '../../layouts/aside/Aside'
 
-// import Info from './Info'
 import Events from './Events'
-import FeaturedArticles from './FeaturedArticles'
+import FeaturedArticles from '../../layouts/sections/FeaturedArticles'
 
 function Home({
   setSidebarSlide
@@ -40,22 +39,6 @@ function Home({
       </Helmet>
 
       <Main>
-        {/* <Container>
-          <Row>
-            <Column
-              col={{ _: 12 }}
-            >
-              <Info />
-            </Column>
-          </Row>
-        </Container> */}
-
-        <Divider
-          utilities={{
-            w: { _: 100 }
-          }}
-        />
-
         <Container>
           <Row>
             <Column
@@ -63,19 +46,27 @@ function Home({
             >
               <Events />
 
+              <Divider />
+
               <FeaturedArticles />
             </Column>
 
             <Column
               col={{ md: 1 }}
               utilities={{
-                d: { _: 'none', md: 'block' },
                 text: { _: 'center' }
               }}
             >
               <Divider
+                utilities={{
+                  d: { _: 'inline-block', md: 'none' }
+                }}
+              />
+
+              <Divider
                 vertical
                 utilities={{
+                  d: { _: 'none', md: 'inline-block' },
                   h: { _: 100 }
                 }}
               />

@@ -15,8 +15,9 @@ function Footer({
       ]}
     >
       <Button
-        size='xs'
-        variant='outline'
+        size='sm'
+        variant='fill'
+        color='light'
         utilities={{
           w: { _: 50, sm: 'auto' }
         }}
@@ -25,11 +26,11 @@ function Footer({
       </Button>
 
       <DynamicLink
-        path={`http://localhost:1337${paperURL}`}
+        path={`https://strapi-development-tb5n.onrender.com${paperURL}`}
         classes={[
           'btn',
-          'btn--xs',
-          'btn--fill-primary',
+          'btn--sm',
+          'btn--fill-light',
           'btn--link'
         ]}
         utilities={{
@@ -42,8 +43,8 @@ function Footer({
   )
 }
 
-// Footer.propTypes = {
-//   paperURL: PropTypes.func
-// }
+Footer.propTypes = {
+  // paperURL: PropTypes.func
+}
 
 export default Footer

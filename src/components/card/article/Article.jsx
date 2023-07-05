@@ -19,7 +19,8 @@ function Article({
     <article
       key={key}
       className={classNames(
-        'card'
+        'card',
+        'card--publications',
       )}
     >
       <Header
@@ -49,7 +50,7 @@ Article.propTypes = {
   title: PropTypes.string,
   slug: PropTypes.string,
   description: PropTypes.string,
-  // paperURL: PropTypes.url,
+  paperURL: PropTypes.url,
   date: PropTypes.string
 }
 

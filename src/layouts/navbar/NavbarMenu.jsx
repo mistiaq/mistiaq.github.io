@@ -5,6 +5,10 @@ import Button from '../../components/Button'
 
 const links = [
   {
+    name: 'About',
+    path: '/about'
+  },
+  {
     name: 'CV',
     path: '/cv'
   },
@@ -13,12 +17,12 @@ const links = [
     path: '/publications'
   },
   {
-    name: 'Projects',
-    path: '/projects'
-  },
-  {
     name: 'Repositories',
     path: '/repositories'
+  },
+  {
+    name: 'Blogs',
+    path: '/blogs'
   }
 ]
 

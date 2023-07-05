@@ -19,11 +19,7 @@ function Events() {
   } = useFetch('events')
 
   return (
-    <Section
-      utilities={{
-        pb: { _: 0 }
-      }}
-    >
+    <Section>
       <Row
         utilities={{
           'row-gap': { _: 8 }

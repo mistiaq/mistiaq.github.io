@@ -2,6 +2,8 @@ import {
   Link
 } from "react-router-dom"
 
+import PropTypes from 'prop-types'
+
 import classNames from "classnames"
 
 function DynamicLink({
@@ -32,6 +34,14 @@ function DynamicLink({
       {children}
     </Link>
   )
+}
+
+DynamicLink.propTypes = {
+  path: PropTypes.url,
+  classes: PropTypes.array,
+  utilities: PropTypes.object,
+  style: PropTypes.object,
+  children: PropTypes.node
 }
 
 export default DynamicLink

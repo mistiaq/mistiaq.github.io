@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 
 import {
-  Heading, Small
+  Heading,
+   Small
 } from '../../Typography'
 import DynamicLink from '../../DynamicLink'
 import Divider from '../../Divider'
@@ -52,7 +53,7 @@ function Header({
         ]}
       >
         <DynamicLink
-          path={`http://localhost:1337${paperURL}`}
+          path={`https://strapi-development-tb5n.onrender.com${paperURL}`}
         >
           {title}
         </DynamicLink>

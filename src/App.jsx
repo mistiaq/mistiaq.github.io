@@ -20,8 +20,10 @@ import Sidebar from './layouts/sidebar/Sidebar'
 import Footer from './layouts/footer/Footer'
 
 import Home from './pages/Home'
+import CurriculumVitae from './pages/CV'
 import Publications from './pages/Publications'
 import Repositories from './pages/Repositories'
+import Blogs from './pages/Blogs'
 
 import Error404 from './pages/Error'
 
@@ -57,9 +59,9 @@ function App() {
         />
 
         <Route
-          path='/about'
+          path='/cv'
           element={
-            <Home
+            <CurriculumVitae
               setSidebarSlide={setSidebarSlide}
             />
           }
@@ -80,6 +82,16 @@ function App() {
           path='/repositories'
           element={
             <Repositories
+              setSidebarSlide={setSidebarSlide}
+            />
+          }
+        />
+
+        <Route
+          exact
+          path='/blogs'
+          element={
+            <Blogs
               setSidebarSlide={setSidebarSlide}
             />
           }

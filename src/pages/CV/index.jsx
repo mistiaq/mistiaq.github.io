@@ -2,33 +2,39 @@ import React, {
   useEffect
 } from 'react'
 
+import PropTypes from 'prop-types'
+
 import {
   Helmet
 } from 'react-helmet-async'
 
-import PropTypes from 'prop-types'
+import parser from 'html-react-parser'
 
-import useGithub from '../../hooks/useGithub'
+import useFetch from '../../hooks/useFetch'
 
 import {
   Heading
 } from '../../components/Typography'
 import Divider from '../../components/Divider'
 import SkeletonLoading from '../../components/card/SkeletonLoading'
-import Repository from '../../components/card/repository/Repository'
 
 import Main from '../../layouts/Main'
 import Container from '../../layouts/Container'
-import Section from '../../layouts/Section'
 import {
   Row,
   Column
 } from '../../layouts/Grid'
 import Aside from '../../layouts/aside/Aside'
+import Section from '../../layouts/Section'
 
-function Repositories({
+function CurriculumVitae({
   setSidebarSlide
 }) {
+  const {
+    data,
+    loading
+  } = useFetch('cv')
+
   useEffect(() => {
     setSidebarSlide(false)
 
@@ -37,15 +43,10 @@ function Repositories({
     document.body.style.overflow = ''
   }, [setSidebarSlide])
 
-  const {
-    githubData,
-    loading
-  } = useGithub('repos')
-
   return (
     <React.Fragment>
       <Helmet>
-        <title>Repositories | Mohammad Istiaq Uddin</title>
+        <title>Curriculum Vitae | Mohammad Istiaq Uddin</title>
       </Helmet>
 
       <Main>
@@ -69,7 +70,7 @@ function Repositories({
                         'section__title'
                       ]}
                     >
-                      Repositories
+                      Curriculum Vitae
                     </Heading>
                   </Column>
 
@@ -79,20 +80,7 @@ function Repositories({
                     {
                       loading
                         ? <SkeletonLoading />
-                        : (githubData && githubData.map((repo) => {
-                          return (
-                            <Repository
-                              key={repo.id}
-                              htmlURL={repo.html_url}
-                              name={repo.name}
-                              visibility={repo.visibility}
-                              description={repo.description}
-                              language={repo.language}
-                              forks={repo.forks}
-                              watchers={repo.watchers}
-                            />
-                          )
-                        }))
+                        : data && parser(data.attributes.CurriculumVitae)
                     }
                   </Column>
                 </Row>
@@ -132,8 +120,8 @@ function Repositories({
   )
 }
 
-Repositories.propTypes = {
+CurriculumVitae.propTypes = {
   setSidebarSlide: PropTypes.func
 }
 
-export default Repositories
+export default CurriculumVitae

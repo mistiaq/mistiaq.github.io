@@ -12,13 +12,12 @@ import Divider from '../../components/Divider'
 
 import Main from '../../layouts/Main'
 import Container from '../../layouts/Container'
-import Aside from '../../layouts/aside/Aside'
 import {
   Row,
   Column
 } from '../../layouts/Grid'
-
-import FeaturedArticles from '../Home/FeaturedArticles'
+import Aside from '../../layouts/aside/Aside'
+import FeaturedArticles from '../../layouts/sections/FeaturedArticles'
 
 function Publications({
   setSidebarSlide
@@ -34,7 +33,7 @@ function Publications({
   return (
     <React.Fragment>
       <Helmet>
-        <title>Personal Portfolio | Mohammad Istiaq Uddin</title>
+        <title>Publications | Mohammad Istiaq Uddin</title>
       </Helmet>
 
       <Main>
@@ -49,13 +48,19 @@ function Publications({
             <Column
               col={{ md: 1 }}
               utilities={{
-                d: { _: 'none', md: 'block' },
                 text: { _: 'center' }
               }}
             >
               <Divider
+                utilities={{
+                  d: { _: 'inline-block', md: 'none' }
+                }}
+              />
+
+              <Divider
                 vertical
                 utilities={{
+                  d: { _: 'none', md: 'inline-block' },
                   h: { _: 100 }
                 }}
               />

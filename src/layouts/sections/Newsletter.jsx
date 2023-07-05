@@ -1,15 +1,15 @@
 import {
   Paragraph
-} from '../components/Typography'
-import Button from '../components/Button'
+} from '../../components/Typography'
+import Button from '../../components/Button'
 
-import Container from './Container'
+import Container from '../Container'
 import {
   Row,
   Column
-} from './Grid'
-import Section from './Section'
-import Box from './Box'
+} from '../Grid'
+import Section from '.'
+import Box from '../Box'
 
 function Newsletter() {
   return (

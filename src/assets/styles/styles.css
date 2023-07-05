@@ -44,7 +44,7 @@ hr {
 ol,
 ul {
   padding-left: 2rem;
-  list-style: none;
+  list-style: disc;
 }
 
 ol,
@@ -148,6 +148,8 @@ svg {
 table {
   caption-side: bottom;
   border-collapse: collapse;
+  background-color: #f0f2f5;
+  border: 1px solid #ced4da;
 }
 
 th {
@@ -161,6 +163,7 @@ tfoot,
 tr,
 td,
 th {
+  padding: 1.5rem;
   border-color: inherit;
   border-style: solid;
   border-width: 0;
@@ -8784,21 +8787,12 @@ mark {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding-bottom: 4rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
   background-color: transparent;
   background-clip: border-box;
-  border-bottom: 0.0635rem solid rgba(52, 58, 64, 0.125);
   border-radius: 0;
   box-shadow: none;
-}
-.card:last-child {
-  padding-bottom: 0rem;
-  border: 0;
-}
-.card + .card {
-  padding-top: 4rem;
 }
 .card__body {
   flex: 1 1 auto;
@@ -8831,15 +8825,48 @@ mark {
   gap: 1rem;
   align-items: center;
 }
+.card--publications {
+  padding-bottom: 4rem;
+  border-bottom: 0.0635rem solid rgba(52, 58, 64, 0.125);
+}
+.card--publications:last-child {
+  padding-bottom: 0rem;
+  border: 0;
+}
+.card--publications + .card--publications {
+  padding-top: 4rem;
+}
 .card--events {
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
   align-items: start;
   padding-bottom: 1.5rem;
+  border-bottom: 0.0635rem solid rgba(52, 58, 64, 0.125);
+}
+.card--events:last-child {
+  padding-bottom: 0rem;
+  border: 0;
 }
 .card--events + .card--events {
   padding-top: 1.5rem;
+}
+.card--repository {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border: 0.0635rem solid rgba(52, 58, 64, 0.125);
+}
+.card--repository + .card--repository {
+  margin-top: 1.5rem;
+}
+.card--repository .card__title {
+  font-size: 1.125rem;
+}
+.card--repository .repo-language-color {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.25rem;
 }
 
 @media (min-width: 62rem) {

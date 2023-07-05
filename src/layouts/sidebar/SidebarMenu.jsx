@@ -20,13 +20,13 @@ const links = [
   },
   {
     id: 3,
-    name: 'Projects',
-    path: '/projects'
+    name: 'Repositories',
+    path: '/repositories'
   },
   {
     id: 4,
-    name: 'Repositories',
-    path: '/repositories'
+    name: 'Blogs',
+    path: '/blogs'
   }
 ]
 
