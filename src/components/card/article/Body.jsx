@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import ReactMarkdown from 'react-markdown'
+import parser from "html-react-parser"
 
 import Box from '../../../layouts/Box'
 
@@ -14,11 +14,11 @@ function Body({
         'card__body'
       ]}
     >
-      <ReactMarkdown
+      <Box
         className='card__description'
       >
-        {description}
-      </ReactMarkdown>
+        {parser(description)}
+      </Box>
     </Box>
   )
 }
