@@ -10,6 +10,32 @@
   @include border-radius(0);
   @include box-shadow(none);
 
+  &__thumbnail {
+    position: relative;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    &-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      span {
+        position: absolute;
+        width: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+    }
+  }
+
   &__body {
     flex: 1 1 auto;
     padding-top: $spacer-3;
@@ -19,7 +45,7 @@
   &__title {
     display: -webkit-box;
     margin-bottom: $spacer-0;
-    font-size: $font-size-xxl;
+    @include font-size($font-size-lg);
     font-weight: 600;
     text-transform: capitalize;
     overflow: hidden;
@@ -45,6 +71,40 @@
     display: flex;
     gap: $spacer-4;
     align-items: center;
+  }
+
+  &--article {
+    padding-bottom: $spacer-9;
+    border-bottom: 0.0635rem solid rgba($hr-bg-color, 0.125);
+
+    &:last-child {
+      padding-bottom: $spacer-0;
+      border: 0;
+    }
+
+    &+& {
+      padding-top: $spacer-9;
+    }
+
+    .card__body {
+      padding-top: $spacer-6;
+    }
+
+    .card__title {
+      margin-bottom: $spacer-3;
+    }
+
+    .card__description {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .card__footer {
+      justify-content: space-between;
+    }
   }
 
   &--publications {
@@ -101,135 +161,26 @@
   }
 }
 
-.article-thumbnail {
-  position: relative;
-  height: 0;
-  padding: 0;
-  padding-bottom: 100%;
-  margin: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba($primary, 0.1),
-    0 2px 4px -1px rgba($primary, 0.06);
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    background: linear-gradient(to bottom, transparent 0%, transparent 8.1%, rgba(0, 0, 0, 0.001) 15.5%, rgba(0, 0, 0, 0.003) 22.5%, rgba(0, 0, 0, 0.005) 29%, rgba(0, 0, 0, 0.008) 35.3%, rgba(0, 0, 0, 0.011) 41.2%, rgba(0, 0, 0, 0.014) 47.1%, rgba(0, 0, 0, 0.016) 52.9%, rgba(0, 0, 0, 0.019) 58.8%, rgba(0, 0, 0, 0.022) 64.7%, rgba(0, 0, 0, 0.025) 71%, rgba(0, 0, 0, 0.027) 77.5%, rgba(0, 0, 0, 0.029) 84.5%, rgba(0, 0, 0, 0.03) 91.9%, rgba(0, 0, 0, 0.03) 100%);
-  }
-
-  &__placeholder {
-    margin: 0;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      display: block;
-      padding-top: 100%;
-    }
-
-    &-img {
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-    }
-
-    &>* {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  }
-
-  &__link {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    span {
-      position: absolute;
-      width: 0;
-      overflow: hidden;
-      opacity: 0;
-    }
-  }
-
-  &__overlay {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: flex-end;
-    padding: $spacer-6;
-    opacity: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, transparent, rgba($black, 1));
-    border-radius: 8px;
-    transition: opacity 300ms ease;
-  }
-
-  &__content {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 0;
-
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    font-size: 100%;
-    vertical-align: baseline;
-  }
-
-  &__title {
-    color: $light;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  &__actions {
-    display: flex;
-    flex: 1;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-  }
-
-  &__action {
-    pointer-events: auto;
-  }
-
-  &:hover {
-    .article-thumbnail__overlay {
-      opacity: 1;
-    }
-  }
-}
-
 @include media-breakpoint-up(lg) {
   .card {
+    &--article {
+      gap: $spacer-9;
+      align-items: start;
+      flex-direction: row-reverse;
+      padding-bottom: $spacer-9;
+      border-bottom: 0.0635rem solid rgba($hr-bg-color, 0.125);
+
+      .card__thumbnail-img {
+        width: 300px;
+      }
+
+      .card__body {
+        padding-top: $spacer-0;
+        padding-bottom: $spacer-8;
+        margin-top: -$spacer-2;
+      }
+    }
+
     &--events {
       gap: $spacer-6;
       flex-direction: row;

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import parser from "html-react-parser"
+import parser from 'html-react-parser'
 
 import Box from '../../../layouts/Box'
 
@@ -8,7 +8,6 @@ function Body({
   description
 }) {
   return (
-
     <Box
       classes={[
         'card__body'

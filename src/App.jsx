@@ -23,7 +23,7 @@ import Home from './pages/Home'
 import CurriculumVitae from './pages/CV'
 import Publications from './pages/Publications'
 import Repositories from './pages/Repositories'
-import Articles from './pages/Articles'
+import Blogs from './pages/Blogs'
 import Article from './pages/Article'
 import Category from './pages/Category'
 
@@ -91,9 +91,9 @@ function App() {
 
         <Route
           exact
-          path='/articles'
+          path='/blogs'
           element={
-            <Articles
+            <Blogs
               setSidebarSlide={setSidebarSlide}
             />
           }
@@ -101,7 +101,7 @@ function App() {
 
         <Route
           exact
-          path='/articles/:articleSlug'
+          path='/blogs/:slug'
           element={
             <Article
               setSidebarSlide={setSidebarSlide}

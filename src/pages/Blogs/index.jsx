@@ -15,7 +15,7 @@ import {
 } from '../../components/Typography'
 import Divider from '../../components/Divider'
 import SkeletonLoading from '../../components/card/SkeletonLoading'
-import Article from '../../components/card/article/Article'
+import ArticleCard from '../../components/card/article/ArticleCard'
 
 import Main from '../../layouts/Main'
 import Section from '../../layouts/Section'
@@ -26,7 +26,7 @@ import {
 } from '../../layouts/Grid'
 import Aside from '../../layouts/aside/Aside'
 
-function Articles({
+function Blogs({
   setSidebarSlide
 }) {
   useEffect(() => {
@@ -76,32 +76,22 @@ function Articles({
                   <Column
                     col={{ _: 12 }}
                   >
-                    <Row
-                      utilities={{
-                        'row-gap': { _: 8 }
-                      }}
-                    >
-                      <Column
-                        col={{ _: 12, lg: 6 }}
-                      >
-                        {
-                          loading
-                            ? <SkeletonLoading />
-                            : (data && data.map((article) => {
-                              return (
-                                <Article
-                                  key={article.id}
-                                  title={article.attributes.title}
-                                  slug={article.attributes.slug}
-                                  description={article.attributes.description}
-                                  thumbnail={article.attributes.thumbnail.data.attributes.url}
-                                  date={article.attributes.uploadedAt}
-                                />
-                              )
-                            }))
-                        }
-                      </Column>
-                    </Row>
+                    {
+                      loading
+                        ? <SkeletonLoading />
+                        : (data && data.map((article) => {
+                          return (
+                            <ArticleCard
+                              key={article.id}
+                              title={article.attributes.title}
+                              slug={article.attributes.slug}
+                              description={article.attributes.description}
+                              thumbnail={article.attributes.thumbnail.data.attributes.url}
+                              uploadedAt={article.attributes.uploadedAt}
+                            />
+                          )
+                        }))
+                    }
                   </Column>
                 </Row>
               </Section>
@@ -141,8 +131,8 @@ function Articles({
   )
 }
 
-Articles.propTypes = {
+Blogs.propTypes = {
   setSidebarSlide: PropTypes.func
 }
 
-export default Articles
+export default Blogs

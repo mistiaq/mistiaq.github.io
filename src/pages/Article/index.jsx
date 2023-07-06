@@ -3,33 +3,33 @@ import React, {
 } from 'react'
 
 import {
-  Helmet
-} from 'react-helmet-async'
-
-import ReactMarkdown from 'react-markdown'
-
-import {
   useParams
 } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
+import {
+  Helmet
+} from 'react-helmet-async'
+
+import parser from 'html-react-parser'
+
 import useFetch from '../../hooks/useFetch'
 
 import {
-  Heading,
-  Span
+  Heading, Span
 } from '../../components/Typography'
 import Divider from '../../components/Divider'
+import SkeletonLoading from '../../components/card/SkeletonLoading'
 
 import Main from '../../layouts/Main'
-import Container from '../../layouts/Container'
-import Aside from '../../layouts/aside/Aside'
 import Section from '../../layouts/Section'
+import Container from '../../layouts/Container'
 import {
   Row,
   Column
 } from '../../layouts/Grid'
+import Aside from '../../layouts/aside/Aside'
 
 function Article({
   setSidebarSlide
@@ -41,7 +41,7 @@ function Article({
   const {
     data,
     loading
-  } = useFetch(`articles/${slug}?populate=*`)
+  } = useFetch(`articles?populate=*&[filters][slug]=${slug}`)
 
   useEffect(() => {
     setSidebarSlide(false)
@@ -51,85 +51,76 @@ function Article({
     document.body.style.overflow = ''
   }, [setSidebarSlide])
 
+  { console.log(data) }
+
   return (
     <React.Fragment>
       <Helmet>
-        <title>
-          {data && data.attributes.title}
-        </title>
+        <title>{slug.toUpperCase()} | Mohammad Istiaq Uddin</title>
       </Helmet>
 
       <Main>
         <Container>
           <Row>
             <Column
-              col={{ _: 12, md: 7, lg: 8, xl: 8 }}
-            >
-              <Section>
-                <data>
-                  <Span>
-                    <a href='/'>Speeches</a>
-                    —
-                    <time dateTime='2021-06-28'>Jun 28, 2021</time>
-                  </Span>
-
-                  {
-                    loading
-                      ?
-                      <div className='skeleton mt-3 mb-6'></div>
-                      :
-
-                      <Heading
-                        as='h1'
-                        display
-                      >
-                        {data && data.attributes.title}
-                      </Heading>
-                  }
-
-                  {/* {
-                    loading
-                      ?
-                      <div className='skeleton h-500px mt-6'></div>
-                      :
-                      <figure className='mb-7'>
-                        <img src={data && 'http://localhost:1337' + data.attributes.featuredImage.data.attributes.url} alt={data && data.attributes.featuredImage.data.attributes.name} />
-                      </figure>
-                  } */}
-
-                  {
-                    loading
-                      ?
-                      <div className='skeleton mt-6'></div>
-                      :
-                      <div className='w-md-75 mx-md-auto'>
-                        <ReactMarkdown>
-                          {data && data.attributes.description}
-                        </ReactMarkdown>
-                      </div>
-                  }
-                </data>
-              </Section>
-            </Column>
-
-            <Column
-              col={{ md: 1 }}
+              col={{ _: 12, lg: 8 }}
               utilities={{
-                text: { _: 'center' }
+                mx: { _: 'auto' }
               }}
             >
-              <Divider
-                vertical
-                utilities={{
-                  h: { _: 100 }
-                }}
-              />
-            </Column>
+              {
+                loading
+                  ? <SkeletonLoading />
+                  : (data && data.map((article) => {
+                    return (
+                      <Section
+                        key={article.id}
+                      >
+                        <data>
+                          <Span>
+                            <a href='/'>Speeches</a>
+                            —
+                            <time dateTime='2021-06-28'>Jun 28, 2021</time>
+                          </Span>
 
-            <Column
-              col={{ _: 12, md: 4, lg: 3, xl: 3 }}
-            >
-              <Aside />
+                          {
+                            loading
+                              ?
+                              <div className='skeleton mt-3 mb-6'></div>
+                              :
+
+                              <Heading
+                                as='h3'
+                                display
+                              >
+                                {article && article.attributes.title}
+                              </Heading>
+                          }
+
+                          {
+                            loading
+                              ?
+                              <div className='skeleton h-500px mt-6'></div>
+                              :
+                              <figure className='mb-7'>
+                                <img src={article && ('https://strapi-development-tb5n.onrender.com' + article.attributes.thumbnail.data.attributes.url)} alt={article && article.attributes.thumbnail.data.attributes.name} />
+                              </figure>
+                          }
+
+                          {
+                            loading
+                              ?
+                              <div className='skeleton mt-6'></div>
+                              :
+                              <div>
+                                {article && parser(article.attributes.description)}
+                              </div>
+                          }
+                        </data>
+                      </Section>
+                    )
+                  }))
+              }
             </Column>
           </Row>
         </Container>
