@@ -17,7 +17,7 @@ import {
   Column
 } from '../../layouts/Grid'
 import Aside from '../../layouts/aside/Aside'
-import FeaturedArticles from '../../layouts/sections/FeaturedArticles'
+import FeaturedPublications from '../../layouts/sections/FeaturedPublications'
 
 function Publications({
   setSidebarSlide
@@ -42,7 +42,7 @@ function Publications({
             <Column
               col={{ _: 12, md: 7, lg: 8, xl: 8 }}
             >
-              <FeaturedArticles />
+              <FeaturedPublications />
             </Column>
 
             <Column
@@ -53,7 +53,8 @@ function Publications({
             >
               <Divider
                 utilities={{
-                  d: { _: 'inline-block', md: 'none' }
+                  d: { _: 'inline-block', md: 'none' },
+                  w: { _: 100 }
                 }}
               />
 

@@ -2,31 +2,31 @@ import React, {
   useEffect
 } from 'react'
 
+import PropTypes from 'prop-types'
+
 import {
   Helmet
 } from 'react-helmet-async'
 
-import PropTypes from 'prop-types'
-
-import useGithub from '../../hooks/useGithub'
+import useFetch from '../../hooks/useFetch'
 
 import {
   Heading
 } from '../../components/Typography'
 import Divider from '../../components/Divider'
 import SkeletonLoading from '../../components/card/SkeletonLoading'
-import Repository from '../../components/card/repository/Repository'
+import Article from '../../components/card/article/Article'
 
 import Main from '../../layouts/Main'
-import Container from '../../layouts/Container'
 import Section from '../../layouts/Section'
+import Container from '../../layouts/Container'
 import {
   Row,
   Column
 } from '../../layouts/Grid'
 import Aside from '../../layouts/aside/Aside'
 
-function Repositories({
+function Articles({
   setSidebarSlide
 }) {
   useEffect(() => {
@@ -38,14 +38,14 @@ function Repositories({
   }, [setSidebarSlide])
 
   const {
-    githubData,
+    data,
     loading
-  } = useGithub('repos')
+  } = useFetch('articles?populate=*')
 
   return (
     <React.Fragment>
       <Helmet>
-        <title>Repositories | Mohammad Istiaq Uddin</title>
+        <title>Articles | Mohammad Istiaq Uddin</title>
       </Helmet>
 
       <Main>
@@ -69,31 +69,39 @@ function Repositories({
                         'section__title'
                       ]}
                     >
-                      Repositories
+                      Articles
                     </Heading>
                   </Column>
 
                   <Column
                     col={{ _: 12 }}
                   >
-                    {
-                      loading
-                        ? <SkeletonLoading />
-                        : (githubData && githubData.map((repo) => {
-                          return (
-                            <Repository
-                              key={repo.id}
-                              htmlURL={repo.html_url}
-                              name={repo.name}
-                              visibility={repo.visibility}
-                              description={repo.description}
-                              language={repo.language}
-                              forks={repo.forks}
-                              watchers={repo.watchers}
-                            />
-                          )
-                        }))
-                    }
+                    <Row
+                      utilities={{
+                        'row-gap': { _: 8 }
+                      }}
+                    >
+                      <Column
+                        col={{ _: 12, lg: 6 }}
+                      >
+                        {
+                          loading
+                            ? <SkeletonLoading />
+                            : (data && data.map((article) => {
+                              return (
+                                <Article
+                                  key={article.id}
+                                  title={article.attributes.title}
+                                  slug={article.attributes.slug}
+                                  description={article.attributes.description}
+                                  thumbnail={article.attributes.thumbnail.data.attributes.url}
+                                  date={article.attributes.uploadedAt}
+                                />
+                              )
+                            }))
+                        }
+                      </Column>
+                    </Row>
                   </Column>
                 </Row>
               </Section>
@@ -133,8 +141,8 @@ function Repositories({
   )
 }
 
-Repositories.propTypes = {
+Articles.propTypes = {
   setSidebarSlide: PropTypes.func
 }
 
-export default Repositories
+export default Articles

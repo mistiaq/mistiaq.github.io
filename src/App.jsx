@@ -23,7 +23,9 @@ import Home from './pages/Home'
 import CurriculumVitae from './pages/CV'
 import Publications from './pages/Publications'
 import Repositories from './pages/Repositories'
-import Blogs from './pages/Blogs'
+import Articles from './pages/Articles'
+import Article from './pages/Article'
+import Category from './pages/Category'
 
 import Error404 from './pages/Error'
 
@@ -89,9 +91,29 @@ function App() {
 
         <Route
           exact
-          path='/blogs'
+          path='/articles'
           element={
-            <Blogs
+            <Articles
+              setSidebarSlide={setSidebarSlide}
+            />
+          }
+        />
+
+        <Route
+          exact
+          path='/articles/:articleSlug'
+          element={
+            <Article
+              setSidebarSlide={setSidebarSlide}
+            />
+          }
+        />
+
+        <Route
+          exact
+          path='/categories/:categoryName'
+          element={
+            <Category
               setSidebarSlide={setSidebarSlide}
             />
           }

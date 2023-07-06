@@ -95,7 +95,8 @@ function CurriculumVitae({
             >
               <Divider
                 utilities={{
-                  d: { _: 'inline-block', md: 'none' }
+                  d: { _: 'inline-block', md: 'none' },
+                  w: { _: 100 }
                 }}
               />
 

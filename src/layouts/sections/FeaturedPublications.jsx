@@ -4,7 +4,7 @@ import {
   Heading
 } from '../../components/Typography'
 import SkeletonLoading from '../../components/card/SkeletonLoading'
-import Article from '../../components/card/article/Article'
+import Publication from '../../components/card/publication/Publication'
 
 import Section from '../Section'
 import {
@@ -12,11 +12,11 @@ import {
   Column
 } from '../Grid'
 
-function FeaturedArticles() {
+function FeaturedPublications() {
   const {
     data,
     loading
-  } = useFetch('articles?populate=*')
+  } = useFetch('publications?populate=*')
 
   return (
     <Section>
@@ -46,7 +46,7 @@ function FeaturedArticles() {
               ? <SkeletonLoading />
               : (data && data.map((article) => {
                 return (
-                  <Article
+                  <Publication
                     key={article.id}
                     title={article.attributes.title}
                     slug={article.attributes.slug}
@@ -64,4 +64,4 @@ function FeaturedArticles() {
   )
 }
 
-export default FeaturedArticles
+export default FeaturedPublications

@@ -9,7 +9,7 @@ import Request from '../Request'
 
 const ArticleContext = createContext()
 
-export const useArticleContext = () => {
+export const ArticleContextt = () => {
   return useContext(ArticleContext)
 }
 

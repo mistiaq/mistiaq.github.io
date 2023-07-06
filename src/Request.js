@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const Request = axios.create({
-  // baseURL: 'http://127.0.0.1:1337/api/',
+  // baseURL: 'http://localhost:1337/api/',
   baseURL: 'https://strapi-development-tb5n.onrender.com/api/',
   headers: {
     'Content-type': 'application/json',

@@ -17,9 +17,9 @@ import {
   Column
 } from '../../layouts/Grid'
 import Aside from '../../layouts/aside/Aside'
+import FeaturedPublications from '../../layouts/sections/FeaturedPublications'
 
 import Events from './Events'
-import FeaturedArticles from '../../layouts/sections/FeaturedArticles'
 
 function Home({
   setSidebarSlide
@@ -46,9 +46,7 @@ function Home({
             >
               <Events />
 
-              <Divider />
-
-              <FeaturedArticles />
+              <FeaturedPublications />
             </Column>
 
             <Column
@@ -59,7 +57,8 @@ function Home({
             >
               <Divider
                 utilities={{
-                  d: { _: 'inline-block', md: 'none' }
+                  d: { _: 'inline-block', md: 'none' },
+                  w: { _: 100 }
                 }}
               />
 
@@ -80,7 +79,7 @@ function Home({
           </Row>
         </Container>
       </Main>
-    </React.Fragment >
+    </React.Fragment>
   )
 }
 

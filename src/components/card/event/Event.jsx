@@ -25,7 +25,8 @@ function Event({
     >
       <Paragraph
         utilities={{
-          w: { lg: 25 }
+          w: { lg: 25 },
+          fw: { _: 'bold' }
         }}
       >
         {moment(date).format('MMM D, YYYY')}

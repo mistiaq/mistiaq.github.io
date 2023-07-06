@@ -46,7 +46,7 @@ function Categories() {
               return (
                 <NavLink
                   key={category.id}
-                  path={`/tag/${category.attributes.categoryName}`}
+                  path={`/categories/${category.attributes.categoryName}`}
                   extended
                   utilities={{
                     p: { _: 0 }

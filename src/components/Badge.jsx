@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import classNames from 'classnames'
 
 function Badge({
@@ -30,4 +32,13 @@ function Badge({
   );
 }
 
-export default Badge;
+Badge.propTypes = {
+  variant: PropTypes.string,
+  color: PropTypes.string,
+  classes: PropTypes.array,
+  utilities: PropTypes.object,
+  style: PropTypes.object,
+  children: PropTypes.node
+}
+
+export default Badge

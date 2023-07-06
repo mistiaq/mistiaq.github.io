@@ -3,32 +3,45 @@ import React, {
 } from 'react'
 
 import {
-  Helmet
-} from 'react-helmet-async'
+  useParams
+} from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
-import useGithub from '../../hooks/useGithub'
+import {
+  Helmet
+} from 'react-helmet-async'
+
+import useFetch from '../../hooks/useFetch'
 
 import {
   Heading
 } from '../../components/Typography'
 import Divider from '../../components/Divider'
 import SkeletonLoading from '../../components/card/SkeletonLoading'
-import Repository from '../../components/card/repository/Repository'
+import Publication from '../../components/card/publication/Publication'
 
 import Main from '../../layouts/Main'
-import Container from '../../layouts/Container'
 import Section from '../../layouts/Section'
+import Container from '../../layouts/Container'
 import {
   Row,
   Column
 } from '../../layouts/Grid'
 import Aside from '../../layouts/aside/Aside'
 
-function Repositories({
+function Category({
   setSidebarSlide
 }) {
+  const {
+    categoryName
+  } = useParams()
+
+  const {
+    data,
+    loading
+  } = useFetch(`publications?populate=*&[filters][category][categoryName]=${categoryName}`)
+
   useEffect(() => {
     setSidebarSlide(false)
 
@@ -37,15 +50,10 @@ function Repositories({
     document.body.style.overflow = ''
   }, [setSidebarSlide])
 
-  const {
-    githubData,
-    loading
-  } = useGithub('repos')
-
   return (
     <React.Fragment>
       <Helmet>
-        <title>Repositories | Mohammad Istiaq Uddin</title>
+        <title>{categoryName.toUpperCase()} | Mohammad Istiaq Uddin</title>
       </Helmet>
 
       <Main>
@@ -69,7 +77,7 @@ function Repositories({
                         'section__title'
                       ]}
                     >
-                      Repositories
+                      Featured Publications
                     </Heading>
                   </Column>
 
@@ -79,17 +87,16 @@ function Repositories({
                     {
                       loading
                         ? <SkeletonLoading />
-                        : (githubData && githubData.map((repo) => {
+                        : (data && data.map((publication) => {
                           return (
-                            <Repository
-                              key={repo.id}
-                              htmlURL={repo.html_url}
-                              name={repo.name}
-                              visibility={repo.visibility}
-                              description={repo.description}
-                              language={repo.language}
-                              forks={repo.forks}
-                              watchers={repo.watchers}
+                            <Publication
+                              key={publication.id}
+                              title={publication.attributes.title}
+                              slug={publication.attributes.slug}
+                              description={publication.attributes.description}
+                              category={publication.attributes.category.data.attributes.categoryName}
+                              paperURL={publication.attributes.paper.data.attributes.url}
+                              date={publication.attributes.uploadedAt}
                             />
                           )
                         }))
@@ -133,8 +140,8 @@ function Repositories({
   )
 }
 
-Repositories.propTypes = {
+Category.propTypes = {
   setSidebarSlide: PropTypes.func
 }
 
-export default Repositories
+export default Category

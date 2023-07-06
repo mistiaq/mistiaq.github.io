@@ -36,11 +36,6 @@ const socialLinks = [
     name: 'github',
     icon: 'github',
     path: 'https://www.github.com/mohammadistiaquddin'
-  },
-  {
-    name: 'semantic scholar',
-    icon: 'semantic-scholar',
-    path: 'https://www.semanticscholar.org/mohammadistiaquddin'
   }
 ]
 

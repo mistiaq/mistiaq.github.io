@@ -82,9 +82,9 @@ $line-height-paragraph: 1.6 !default;
 
 $line-height-lead: 1.625 !default;
 
-$lh-btn: 1rem !default;
+$lh-btn: 1.4 !default;
 
-$line-height-link: 1.67 !default;
+$line-height-link: 1.4 !default;
 
 $line-heights: (
   body: $line-height-body,
@@ -130,8 +130,7 @@ $letter-spacings: (
   ) !default;
 
 // -------------------------------- //
-$headings-font-family: 'Poppins',
-  sans-serif;
+$headings-font-family: $font-family-base;
 $headings-font-weight: $font-weight-bold !default;
 
 // -------------------------------- //
@@ -149,7 +148,7 @@ $display-fonts: (
   ) !default;
 
 // -------------------------------- //
-$p-font-family: $font-family-serif !default;
+$p-font-family: $font-family-base !default;
 $p-font-size: $font-size-base !default;
 $p-font-weight: $font-weight-base !default;
 $p-line-height: $line-height-paragraph !default;

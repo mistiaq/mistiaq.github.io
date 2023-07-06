@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import {
   Heading,
-   Small
+  Small
 } from '../../Typography'
 import DynamicLink from '../../DynamicLink'
 import Divider from '../../Divider'
@@ -32,7 +32,12 @@ function Header({
           mb: { _: 4 }
         }}
       >
-        <Badge>{category}</Badge>
+        <Badge
+          variant='outline'
+          color='primary'
+        >
+          {category}
+        </Badge>
 
         <Divider
           circle
@@ -65,7 +70,7 @@ function Header({
 Header.propTypes = {
   category: PropTypes.string,
   title: PropTypes.string,
-  // paperURL: PropTypes.func,
+  paperURL: PropTypes.func,
   date: PropTypes.string
 }
 

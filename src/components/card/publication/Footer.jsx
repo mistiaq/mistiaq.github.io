@@ -16,10 +16,11 @@ function Footer({
     >
       <Button
         size='sm'
-        variant='fill'
-        color='light'
+        variant='outline'
+        color='dark'
         utilities={{
-          w: { _: 50, sm: 'auto' }
+          w: { _: 50, sm: 'auto' },
+          px: { sm: 8 }
         }}
       >
         Code
@@ -30,11 +31,12 @@ function Footer({
         classes={[
           'btn',
           'btn--sm',
-          'btn--fill-light',
+          'btn--tonal-primary',
           'btn--link'
         ]}
         utilities={{
-          w: { _: 50, sm: 'auto' }
+          w: { _: 50, sm: 'auto' },
+          px: { sm: 8 }
         }}
       >
         PDF
@@ -44,7 +46,7 @@ function Footer({
 }
 
 Footer.propTypes = {
-  // paperURL: PropTypes.func
+  paperURL: PropTypes.url
 }
 
 export default Footer
