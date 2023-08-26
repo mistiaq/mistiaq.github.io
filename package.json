@@ -1,8 +1,11 @@
 {
   "name": "ecommerce-dashboard",
   "version": "0.1.0",
+  "homepage": "https://mistiaq.github.io/",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -20,6 +23,7 @@
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "framer-motion": "^10.15.2",
+    "gh-pages": "^6.0.0",
     "html-react-parser": "^4.2.1",
     "prop-types": "^15.8.1"
   }

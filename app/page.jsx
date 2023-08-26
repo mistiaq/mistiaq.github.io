@@ -36,6 +36,11 @@ export default async function Home() {
                     return (
                       <Card
                         title={publication.attributes.title}
+                        description={publication.attributes.description}
+                        category={publication.attributes.category.data.attributes.name}
+                        uploaded_at={publication.attributes.uploaded_at}
+                        code={publication.attributes.code_link}
+                        paper={publication.attributes.paper.data[0].attributes.url}
                       />
                     )
                   })
