@@ -6,8 +6,9 @@ async function fetchQuery(
       'Content-type': 'application/json',
       'Authorization': `bearer ${process.env.STRAPI_API_TOKEN}`
     },
+    cache: 'no-store',
     next: {
-      revalidate: 10
+      revalidate: 100
     }
   })
 
